@@ -8,7 +8,7 @@
 
 
 # Display it for user in appropriate form using any Python code
-# (Use number bulleting for MCQ options for user to enter number corresponding to their answer,
+# (Use number bullets for MCQ options for user to enter number corresponding to their answer,
 # mention 'one word only' for the remaining questions and accept only a one word answer)
 
 # AND
