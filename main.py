@@ -3,7 +3,7 @@
 
 
 
-# Read data using Python from the MongoDB collection.
+# Read data using Python from the MongoDB collection
 
 
 
