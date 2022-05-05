@@ -1,0 +1,71 @@
+{
+    "MCQ1":
+    {
+        "Question": "How many days are in a week?",
+        "Options": 
+        {
+            "a": 5,
+            "b": 8,
+            "c": 7,
+            "d": 3
+        },
+        "Correct": "c"
+    },
+    "MCQ2":
+    {
+        "Question": "Which month affects the number of days of a leap year?",
+        "Options": 
+        {
+            "a": "June",
+            "b": "February",
+            "c": "May",
+            "d": "November"
+        },
+        "Correct": "b"
+    },
+    "MCQ3":
+    {
+        "Question": "What is the mass number of an unstable uranium atom during a nuclear fission?",
+        "Options": 
+        {
+            "a": 236,
+            "b": 235,
+            "c": 238,
+            "d": 237
+        },
+        "Correct": "a"
+    },
+    "MCQ4":
+    {
+        "Question": "Which bacteria is involved in curdling of milk?",
+        "Options": 
+        {
+            "a": "plantarum",
+            "b": "Eric",
+            "c": "Rhizobium",
+            "d": "Lactobacillus"
+        },
+        "Correct": "d"
+    },
+    "MCQ5":
+    {
+        "Question": "What do camels store in their humps",
+        "Options": 
+        {
+            "a": "Water",
+            "b": "Fats",
+            "c": "Protein",
+            "d": "Wine"
+        },
+        "Correct": "b"
+    },
+}
+
+
+
+
+
+
+
+
+

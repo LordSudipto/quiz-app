@@ -1,0 +1,27 @@
+{
+    "OneWord1":
+    {
+        "Question": "What process do plants use to plants use to create oxygen and energy?",
+        "Answer": "Photosynthesis"
+    },
+    "OneWord2":
+    {
+        "Question": "4x-64=0. What is the value of 'x'?",
+        "Answer": 16
+    },
+    "OneWord3":
+    {
+        "Question": "Write a synonym word for 'eat'.",
+        "Answer": ["consume", "devour", "ingest", "swallow", "chew", "munch"]
+    },
+    "OneWord4":
+    {
+        "Question": "Which season is associated with the highest of temperatures?",
+        "Answer": "Summer"
+    },
+    "OneWord5":
+    {
+        "Question": "Whicch macronutrient is commercial sugar composed of?",
+        "Answer": ["Carbohydrates", "Carbs"]
+    }
+}
