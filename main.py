@@ -1,7 +1,14 @@
 # Import libraries.
+import pymongo
+from dotenv import load_dotenv
+import os
 
 
+# import connection string from another file (.env here)
+load_dotenv()
+conn_string = os.getenv('mongo_string')
 
+# Connect to MongoDB
 
 # Read data using Python from the MongoDB collection
 
