@@ -47,7 +47,6 @@ if input('press \'y\' to start\n'):
         print(f"{owa['_id']}. {owa['Question']}")
         answer = input('Enter a one word answer: ').lower()
         if type(owa['Answer']) == list and answer in [answer_list.lower() for answer_list in owa['Answer']]:
-            print(answer)
             owa_score+=1
         elif answer == str(owa['Answer']).lower():
             owa_score+=1
@@ -58,6 +57,9 @@ print('------------------------')
 print(f'Name: {name}')
 print(f'MCQ score: {mcq_score}')
 print(f'One word answer score: {owa_score}')
+
+# Insert results into 'result' collection.
+collection3.insert_one({'name': name, 'mcq_score': mcq_score, 'owa_score': owa_score})
 
 # Use matplotlib or seaborn to create a graph highlighting performance in MCQ vs single word answers for
 # no. of questions answered correctly.
