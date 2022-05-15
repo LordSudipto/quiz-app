@@ -1,4 +1,7 @@
 # Import libraries.
+
+# ---------------------------------------------------------------
+
 import pymongo
 from dotenv import load_dotenv
 from pymongo import MongoClient
@@ -8,31 +11,25 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import statistics
 
+# ---------------------------------------------------------------
+
 # import connection string from another file (.env here)
 load_dotenv()
 conn_string = os.getenv('mongo_string')
 
 # Connect to MongoDB
-cluster = MongoClient(conn_string)
-db = cluster['Questions']
-collection1 = db['MCQ']                     # The collection in your database.
-collection2 = db['One Word Answers']        # The collection in your database.
-collection3 = db['results']
+cluster = MongoClient(conn_string)          # Connect to the cluster using connection string in the .env file.
+db = cluster['Questions']                   # Connect to 'Questions' database in the cluster.
+collection1 = db['MCQ']                     # Connect to 'MCQ' collection in 'Questions' database.
+collection2 = db['One Word Answers']        # Connect to 'One Word Answers' collection in 'Questions' database.
+collection3 = db['results']                 # Connect to 'results' collection in 'Questions' database.
+
+# ---------------------------------------------------------------
 
 mcq_score = 0                               # Score for MCQ questions.
 owa_score = 0                               # Score for one word answer questions.
 
-# Read data using Python from the MongoDB collection
-"""
-Project segment aim:
-Display questions for user in appropriate form using any Python code
-
-(Use numbered bullets for MCQ options for user to enter number corresponding to their answer,
-mention 'one word only' for the remaining questions and accept only a one word answer)
-AND
-Allot 1 mark for each correct MCQ, 2 marks for each correct single word answer.
-Store the marks for each question in a list/dictionary/set or any other data structure you deem fit.
-"""
+# Read data using Python from the MongoDB collection & display as questions.
 
 print('Welcome to the quiz app\n')
 print('------------------------\n')
@@ -57,25 +54,23 @@ if input('press \'y\' to start\n'):
         elif answer == str(owa['Answer']).lower():
             owa_score+=1
 
-# After all questions are answered, display total marks achieved.
+# ---------------------------------------------------------------
+
+# Display total marks achieved after questions are answered.
 print('\nScoresheet')
 print('------------------------')
 print(f'Name: {name}')
 print(f'MCQ score: {mcq_score}')
 print(f'One word answer score: {owa_score}')
 
-# Insert results into 'result' collection.
+# ---------------------------------------------------------------
+
+# Insert results into 'results' collection.
 collection3.insert_one({'name': name, 'mcq_score': mcq_score, 'owa_score': owa_score})
 
-"""
-Aim for the analysis section:
-Use matplotlib or seaborn to create a graph highlighting performance in MCQ vs single word answers for
-no. of questions answered correctly.
-Create a comparison of current user's scores with the average scores for each type and total.
-Use any type of graph you deem fit.
-"""
+# ---------------------------------------------------------------
 
-# Retrieve past results data from 'result' collection.
+# Retrieve past results data from 'results' collection.
 data = collection3.find({})
 df = pd.DataFrame(list(data))
 df['total'] = df.mcq_score+df.owa_score
@@ -85,6 +80,8 @@ mcq_avg = statistics.mean(df['mcq_score'])
 owa_avg = statistics.mean(df['owa_score'])
 total_avg = statistics.mean(df['total'])
 total_score = mcq_score + owa_score
+
+# ---------------------------------------------------------------
 
 # Create a dictionary for a dataframe of required format for the chart.
 score_label = ['Your score', 'Average', 'Your score', 'Average', 'Your score', 'Average']
@@ -99,6 +96,8 @@ new_data = {
 
 # Create dataframe for chart
 new_df = pd.DataFrame(new_data)
+
+# ---------------------------------------------------------------
 
 # Create chart
 sns.set(style="darkgrid")
