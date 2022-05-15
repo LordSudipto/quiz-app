@@ -63,5 +63,6 @@ collection3.insert_one({'name': name, 'mcq_score': mcq_score, 'owa_score': owa_s
 
 # Use matplotlib or seaborn to create a graph highlighting performance in MCQ vs single word answers for
 # no. of questions answered correctly.
+# Create a comparison of current user's scores with the average scores for each type and total.
 # Use any type of graph you deem fit.
 
