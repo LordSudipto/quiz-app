@@ -25,13 +25,13 @@ mcq_avg = sum(df['mcq_score'])/len(df['mcq_score'])
 owa_avg = sum(df['owa_score'])/len(df['owa_score'])
 total_avg = sum(df['total'])/len(df['total'])
 print(df)
-a = 3
+a = 5
 b = 4
 c = a+b
 
-score_label = ['Your MCQ score', 'Avg MCQ score', 'Your OWA score', 'Avg OWA score', 'Your total score', 'Av/g total score']
+score_label = ['Your score', 'Average', 'Your score', 'Average', 'Your score', 'Average']
 score_type = ['MCQs', 'MCQs', 'OWAs', 'OWAs', 'TOTAL', 'TOTAL']
-scores = [a, b, mcq_avg, owa_avg, c,total_avg]
+scores = [a, mcq_avg, b, owa_avg, c,total_avg]
 
 new_data = {
     'score_label': score_label,
@@ -39,12 +39,22 @@ new_data = {
     'scores': scores
 }
 
-new_df = pd.DataFrame(new_data)
-print(new_df)
+sns.set(style="darkgrid")
+plt.style.use("dark_background")
+plt.rcParams.update({"grid.linewidth": 0.5, "grid.alpha": 0.5})
+plt.figure(figsize=(6, 6))
 
-sns.barplot(x = 'score_label',
-            y = 'scores',
-            hue = 'score_type',
-            data = new_df)
+new_df = pd.DataFrame(new_data)
+
+sns.set_palette(sns.color_palette("Paired"))
+ax = sns.barplot(x='score_type',
+                 y='scores',
+                 hue='score_label',
+                 data=new_df,
+                 edgecolor='black')
+
+ax.set_title('Score Analysis')
+ax.set_ylabel('Score Value')
+ax.set_xlabel('Score Type')
 
 plt.show()
